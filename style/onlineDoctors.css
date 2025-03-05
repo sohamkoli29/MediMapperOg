@@ -1,0 +1,134 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fb;
+    line-height: 1.6;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.profile-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+    border: 1px solid #e9ecef;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #3498db;
+}
+
+.profile-details {
+    flex-grow: 1;
+}
+
+.profile-details h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.doctor-info {
+    margin-bottom: 25px;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #34495e;
+    width: 150px;
+    display: inline-block;
+}
+
+.info-value {
+    color: #7f8c8d;
+}
+
+.profile-actions {
+    margin-top: 25px;
+}
+
+.chat-btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.chat-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-label {
+        width: auto;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profile-container {
+        padding: 10px;
+    }
+
+    .profile-card {
+        padding: 15px;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-details h2 {
+        font-size: 1.5em;
+    }
+}
