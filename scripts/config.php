@@ -1,7 +1,7 @@
 <?php
-$host = "192.168.60.184";
-$username = "sohamkoli29";
-$password = "securemedimapper";
+$host = "";
+$username = "";
+$password = "";
 $database = "healthcare";
 
 $conn = new mysqli($host, $username, $password, $database);
