@@ -68,8 +68,11 @@ header{
     top: 50%;
     object-fit: contain; 
 }
-.myProfile p{
+.myProfile a h3{
     text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: #000;
 }
 
 
@@ -198,6 +201,11 @@ header{
     top: 40%;
     gap: 7vh;
     
+}
+.card:hover {
+    
+    transform: scale(1.05); /* Slight Pop-up Effect */
+    border-radius: 35px;
 }
 .service-cards .card img{
     width: auto;
@@ -377,6 +385,11 @@ header{
     bottom: 12%;
     background: transparent;
 }
+.faqinput:focus {
+    outline: 3px solid #000a00; /* Highlight Input */
+    
+}
+
 .faqForm label{
     position: absolute;
     bottom: 22%;
@@ -392,4 +405,354 @@ header{
     background: #D9D9D9;
     border-radius: 15px;
     border-width: 2px;
+}
+
+/* Responsive CSS for all screen sizes */
+
+/* Large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+    .main-heading {
+        font-size: 12vh;
+    }
+    
+    .main-info h2 {
+        font-size: 7vh;
+    }
+    
+    .main-info h3 {
+        font-size: 4vh;
+    }
+    
+    .home-right img {
+        height: 65vh;
+    }
+    
+    .about-Head h1, .service-head h1, .doctor-head h1, .faq-head h1 {
+        font-size: 70px;
+    }
+}
+
+/* Medium devices (tablets, 992px and up) */
+@media (max-width: 992px) {
+    header {
+        height: 12vh;
+        border-radius: 0px 0px 50px 50px;
+    }
+    
+    .main-logo img {
+        height: 10vh;
+    }
+    
+    .nav-link {
+        gap: 15px;
+    }
+    
+    .nav-link img {
+        height: 40px;
+    }
+    
+    .myProfile img {
+        height: 8vh;
+    }
+    
+    .main-heading {
+        font-size: 10vh;
+        margin-top: 18vh;
+    }
+    
+    .main-info {
+        top: 45%;
+    }
+    
+    .main-info h2 {
+        font-size: 6vh;
+    }
+    
+    .main-info h3 {
+        font-size: 3.5vh;
+    }
+    
+    .home-right img {
+        height: 55vh;
+    }
+    
+    .about-Head h1, .service-head h1, .doctor-head h1, .faq-head h1 {
+        font-size: 60px;
+        margin-top: 18vh;
+    }
+    
+    .about-img img {
+        height: 35vh;
+    }
+    
+    .service-cards .card img {
+        height: 35vh;
+    }
+    
+    .questionsBox {
+        width: 80vw;
+        left: 10vw;
+    }
+    
+    .faqForm {
+        width: 45vw;
+        right: 10vw;
+    }
+}
+
+/* Small devices (landscape phones, 768px and up) */
+@media (max-width: 768px) {
+    header {
+        height: 10vh;
+        border-radius: 0px 0px 30px 30px;
+        justify-content: center;
+    }
+    
+    .main-logo {
+        left: 5px;
+    }
+    
+    .main-logo img {
+        height: 8vh;
+    }
+    
+    .nav-link {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 10px 0;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-link img {
+        height: 30px;
+    }
+    
+    .nav-link p {
+        font-size: 12px;
+    }
+    
+    .myProfile {
+        right: 10px;
+    }
+    
+    .myProfile img {
+        height: 7vh;
+    }
+    
+    .myProfile a h3 {
+        font-size: 14px;
+    }
+    
+    #home, #about, #services, #doctor, #faq {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        padding: 15vh 0 10vh 0;
+    }
+    
+    .main-heading {
+        font-size: 8vh;
+        text-align: center;
+        margin-top: 15vh;
+    }
+    
+    .main-info {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .main-info h2 {
+        font-size: 5vh;
+    }
+    
+    .main-info h3 {
+        font-size: 3vh;
+    }
+    
+    .home-right {
+        position: relative;
+        right: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .home-right img {
+        height: 45vh;
+    }
+    
+    .about-Head h1, .service-head h1, .doctor-head h1, .faq-head h1 {
+        font-size: 50px;
+        text-align: center;
+        margin-top: 15vh;
+    }
+    
+    .about-img {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .about-img img {
+        height: 30vh;
+    }
+    
+    .about-discription {
+        position: relative;
+        right: 0;
+        top: 0;
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .service-cards {
+        position: relative;
+        flex-direction: column;
+        top: 0;
+        margin-top: 20px;
+        align-items: center;
+    }
+    
+    .service-cards .card img {
+        height: 30vh;
+    }
+    
+    .questionsBox {
+        position: relative;
+        width: 90%;
+        left: 0;
+        margin: 20px auto;
+        height: auto;
+    }
+    
+    .question, .ans, .ans.active {
+        width: 100%;
+    }
+    
+    .faqForm {
+        position: relative;
+        width: 90%;
+        right: 0;
+        margin: 20px auto;
+    }
+}
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+    .main-heading {
+        font-size: 6vh;
+    }
+    
+    .main-info h2 {
+        font-size: 4vh;
+    }
+    
+    .main-info h3 {
+        font-size: 2.5vh;
+    }
+    
+    .home-right img {
+        height: 35vh;
+    }
+    
+    .about-Head h1, .service-head h1, .doctor-head h1, .faq-head h1 {
+        font-size: 40px;
+    }
+    
+    .about-img img {
+        height: 25vh;
+    }
+    
+    .about-discription h5 {
+        font-size: 2vh;
+    }
+    
+    .service-cards .card img {
+        height: 25vh;
+    }
+    
+    .question p {
+        font-size: 18px;
+    }
+    
+    .question button {
+        height: 30px;
+        width: 30px;
+    }
+    
+    .smb {
+        font-size: 30px;
+    }
+    
+    .ans p {
+        font-size: 16px;
+    }
+    
+    .faqForm h1 {
+        font-size: 28px;
+    }
+    
+    .faqForm p {
+        font-size: 16px;
+    }
+    
+    .faqForm label {
+        font-size: 16px;
+    }
+}
+
+/* Fix for FAQ section in mobile view */
+@media (max-width: 768px) {
+    .question, .ans, .ans.active {
+        position: relative;
+        margin-bottom: 10px;
+    }
+    
+    .ans, .ans.active {
+        margin-top: -10px;
+        padding-top: 10vh;
+    }
+    
+    .ans.active {
+        height: auto;
+        min-height: 25vh;
+        padding: 15vh 10px 10px 10px;
+    }
+}
+
+/* Hamburger menu for mobile */
+@media (max-width: 768px) {
+    .nav-link {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 1000;
+    }
+    
+    .nav-link.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 80%;
+        background: white;
+        z-index: 999;
+        padding-top: 15vh;
+    }
 }

@@ -1,0 +1,142 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e3f2fd; /* Light Blue */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 500px;
+    width: 90%;
+    background: #ffffff;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+h1 {
+    color: #0077b6; /* Deep Blue */
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+/* Paragraph */
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Input Field */
+input {
+    width: 85%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 2px solid #0077b6;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #0096c7;
+    box-shadow: 0 0 8px rgba(0, 150, 199, 0.4);
+}
+
+/* Buttons */
+button {
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: white;
+    background: #0077b6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #0096c7;
+    transform: scale(1.05);
+}
+
+/* Results */
+#results {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+    background: #d0f0fd;
+    padding: 10px;
+    border-radius: 8px;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* Suggestions List */
+#suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+}
+
+#suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
+}
+
+#suggestions li:hover {
+    background: #caf0f8;
+    padding-left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

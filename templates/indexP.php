@@ -130,13 +130,13 @@ $profile_pic_src = !empty($profile_pic) ? "$profile_pic" :"default.png"; // Use 
                 <img src="../asset/Consultation.png" alt="consultations"  draggable="false" >
             </div>
         </a>
-            <a href="">
+            <a href="predict.php">
 
             <div class="card">
                 <img src="../asset/Symptom.png" alt="Symptom">
             </div>
         </a>
-            <a href="">
+            <a href="remedies.php">
                 <div class="card">
                 <img src="../asset/Remedies.png" alt="Remedies">
                 </div>

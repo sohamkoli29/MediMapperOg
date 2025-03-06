@@ -9,6 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Offline Doctors Button
     offlineDoctorsBtn.addEventListener('click', () => {
-        alert('Offline Available Doctors Feature Coming Soon!');
+        window.location.href = "../templates/offline_consultation.php";
     });
 });

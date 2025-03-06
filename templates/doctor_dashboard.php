@@ -42,9 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['complete_appointment'
 <body>
     <div class="dashboard">
         <h1>Welcome to Doctor Dashboard</h1>
-        <button onclick="openChat()">Chat</button>
+        <button onclick="openChat()">View Patients Chats</button>
         <h2>Upcoming Appointments</h2>
-        <button id="deleteProfileBtn" style="background-color: red; color: white; padding: 10px;">Delete Profile</button>
         
         <div class="appointments-list">
             <?php while ($appointment = $appointments_result->fetch_assoc()) { ?>

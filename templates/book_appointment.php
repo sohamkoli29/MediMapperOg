@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book'])) {
     $stmt->bind_param("iiss", $patient_id, $doctor_id, $date, $time);
     $stmt->execute();
 
-    echo "<script>alert('Appointment booked successfully!'); window.location.href='dashboard.php';</script>";
+    echo "<script>alert('Appointment booked successfully!'); window.location.href='consultation.php';</script>";
 }
 if (!isset($_GET['doctor_id'])) {
     die("Error: Doctor ID is missing.");
