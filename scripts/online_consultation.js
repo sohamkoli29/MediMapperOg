@@ -1,19 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("Script loaded!"); // ✅ Debugging Step
 
-    const visitDoctorButtons = document.querySelectorAll('.visit-doctor-btn');
-
-    visitDoctorButtons.forEach(button => {
+    
+    // Also add click event listeners for the consultation buttons
+    document.querySelectorAll('.visit-doctor-btn').forEach(button => {
         button.addEventListener('click', function() {
             const doctorId = this.getAttribute('data-doctor-id');
-            
-            console.log("Doctor ID:", doctorId); // ✅ Debugging Step
-
-            if (doctorId) {
-                window.location.href = `onlineDoctors.php?doctor_id=${doctorId}`;
-            } else {
-                console.error("Doctor ID is missing!");
-            }
+            // Navigate to chat or scheduling page with the doctor ID
+            window.location.href = `onlineDoctors.php?doctor_id=${doctorId}`;
         });
     });
-});
+
+

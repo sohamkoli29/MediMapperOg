@@ -3,9 +3,9 @@ include('../scripts/config.php');
 session_start();
 
 // Ensure the user is logged in as a doctor
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'doctor') {
-    header("Location: chat.php");
-    exit();
+if (isset($_SESSION['user_id']) && isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
+    // Update last activity time in the database
+    $user_id = $_SESSION['user_id'];
 }
 
 // Fetch doctor appointments
@@ -68,19 +68,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['complete_appointment'
     function openChat() {
         window.location.href = 'patient_list.php';
     }
-     // delete Profile
-
-     document.getElementById("deleteProfileBtn").onclick = function() {
-    if (confirm("Are you sure you want to delete your profile? This action cannot be undone.")) {
-        fetch("delete_profile.php", { method: "POST" })
-        .then(response => response.text())
-        .then(data => {
-            alert(data);
-            window.location.href = "../index.html"; // Redirect to home page after deletion
-        });
+    function updateStatus(status) {
+        navigator.sendBeacon('../scripts/update_status.php', new URLSearchParams({ status }));
     }
-};
-     </script>
 
+    // When the page is visible, set the doctor as online (status = 1)
+    function handleVisibilityChange() {
+        if (document.visibilityState === 'visible') {
+            updateStatus(1);
+        } else {
+            updateStatus(0);
+        }
+    }
+
+    // Update status every 5 seconds while the doctor is active
+    setInterval(() => {
+        if (document.visibilityState === 'visible') {
+            updateStatus(1);  // Active tab = Online
+        }
+    }, 5000);
+
+    // Set up event listeners
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('beforeunload', () => updateStatus(0));  // When tab is closed
+     </script>
+  
 </body>
 </html>

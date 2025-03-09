@@ -141,7 +141,7 @@ $profile_pic_src = !empty($profile_pic) ? "$profile_pic" :"default.png"; // Use 
                 <img src="../asset/Remedies.png" alt="Remedies">
                 </div>
         </a>
-            <a href="">     
+            <a href="report.php">     
                 <div class="card">
                 <img src="../asset/Report.png" alt="Report">
             </div>
@@ -186,4 +186,6 @@ $profile_pic_src = !empty($profile_pic) ? "$profile_pic" :"default.png"; // Use 
     </section>
 </body>
 <script src="../scripts/script.js"></script>
+
+
 </html>

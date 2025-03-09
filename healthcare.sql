@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2025 at 01:02 PM
+-- Generation Time: Mar 09, 2025 at 12:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,7 +48,9 @@ CREATE TABLE `doctors` (
   `specialization` varchar(100) DEFAULT NULL,
   `qualification` varchar(100) DEFAULT NULL,
   `experience` int(11) DEFAULT NULL,
-  `availability` varchar(100) DEFAULT NULL
+  `availability` varchar(100) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 0,
+  `last_activity` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -63,7 +65,8 @@ CREATE TABLE `messages` (
   `receiver_id` int(11) DEFAULT NULL,
   `sender_role` enum('doctor','patient') DEFAULT NULL,
   `message` text DEFAULT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `file_path` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -80,7 +83,8 @@ CREATE TABLE `users` (
   `name` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `profile_picture` varchar(255) DEFAULT NULL,
-  `reset_token` varchar(255) DEFAULT NULL
+  `reset_token` varchar(255) DEFAULT NULL,
+  `reload_flag` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

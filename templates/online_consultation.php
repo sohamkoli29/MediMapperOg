@@ -8,11 +8,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'patient') {
     exit(); 
 }  
 
-// Fetch all doctors (Make sure we use d.user_id)
-$doctors_query = "SELECT d.user_id, u.name, u.profile_picture, d.specialization, d.qualification                    
-                  FROM users u                    
-                  JOIN doctors d ON u.id = d.user_id"; 
+// Fetch all doctors (including status)
+$doctors_query = "SELECT d.user_id, u.name, u.profile_picture, d.specialization, d.qualification,
+                  (NOW() - d.last_activity <= 30) AS status
+                  FROM users u
+                  JOIN doctors d ON u.id = d.user_id";
 $doctors_result = $conn->query($doctors_query); 
+
 ?>  
 
 <!DOCTYPE html> 
@@ -22,28 +24,65 @@ $doctors_result = $conn->query($doctors_query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">     
     <title>Online Consultation</title>     
     <link rel="stylesheet" href="../style/online_consultation.css"> 
+    <style>
+        .status-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+            }
+
+        .status-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 8px;
+        }
+
+        .status-dot.online {
+        background-color: #28a745; /* Green for online */
+        }
+
+        .status-dot.offline {
+        background-color: #dc3545; /* Red for offline */
+        }
+
+        .status-indicator span {
+        font-size: 0.9em;
+        color: #666;
+        }
+    </style>
 </head> 
 <body>     
-    <div class="dashboard">         
-        <h1>Online Consultation</h1>         
-        <h2>Available Doctors</h2>         
-        <div class="doctor-list">             
-            <?php while ($doctor = $doctors_result->fetch_assoc()) { ?>                 
-                <div class="doctor-card">                 
-                    <img src="<?php echo './' . $doctor['profile_picture']; ?>" alt="Doctor Picture">                     
-                    <h3><?php echo $doctor['name']; ?></h3>                     
-                    <p>Specialization: <?php echo $doctor['specialization']; ?></p>                     
-                    <p>Qualification: <?php echo $doctor['qualification']; ?></p>
-                    <div class="doctor-actions">
-                        <button class="visit-doctor-btn" data-doctor-id="<?php echo $doctor['user_id']; ?>">
+<div class="dashboard">         
+    <h1>Online Consultation</h1>         
+    <h2>Available Doctors</h2>         
+    <div class="doctor-list">
+    <?php while ($doctor = $doctors_result->fetch_assoc()) { 
+        $is_online = $doctor['status'] == 1; 
+        $status_text = $is_online ? 'Online' : 'Offline';
+    ?>
+    <div class="doctor-card">
+        <img src="<?php echo !empty($doctor['profile_picture']) ? './' . htmlspecialchars($doctor['profile_picture']) : '../images/default-avatar.png'; ?>" alt="Doctor Picture">
+        <h3><?php echo htmlspecialchars($doctor['name']); ?></h3>
+        <div class="status-indicator">
+            <span class="status-dot <?php echo $is_online ? 'online' : 'offline'; ?>"></span>
+            <span><?php echo $status_text; ?></span>
+        </div>
+        <p>Specialization: <?php echo htmlspecialchars($doctor['specialization']); ?></p>
+        <p>Qualification: <?php echo htmlspecialchars($doctor['qualification']); ?></p>
+        <button class="visit-doctor-btn" data-doctor-id="<?php echo $doctor['user_id']; ?>">
                             Schedule Consultation
                         </button>
-                    </div>
-                </div>             
-            <?php } ?>         
-        </div>     
-    </div>  
+    </div>
 
-    <script src="../scripts/online_consultation.js"></script>
+    <?php } ?>
+    
+</div>                         
+</div> 
+
+
+<script src="../scripts/online_consultation.js"></script>
+
 </body> 
 </html>

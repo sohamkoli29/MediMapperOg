@@ -1,132 +1,412 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* Healthcare Website Chat CSS - Blue Theme */
+/* Global Variables */
+:root {
+    --primary-blue: #1a73e8;
+    --secondary-blue: #4285f4;
+    --light-blue: #e8f0fe;
+    --dark-blue: #0d47a1;
+    --accent-blue: #82b1ff;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --mid-gray: #e0e0e0;
+    --text-dark: #333333;
+    --text-light: #757575;
+    --success: #34a853;
+    --warning: #fbbc05;
+    --error: #ea4335;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --message-border-radius: 18px;
+}
+
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f7fb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    box-sizing: border-box;
 }
 
-.chat-container {
-    width: 100%;
-    max-width: 600px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+body {
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+    line-height: 1.6;
+    height: 80vh;
     overflow: hidden;
-    border: 1px solid #e9ecef;
+    
 }
 
+/* Chat Container */
+.chat-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+    margin-top: 5vh;
+}
+
+/* Chat Header */
 .chat-header {
-    background-color: #3498db;
-    color: white;
-    padding: 15px;
-    text-align: center;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 15px 20px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    z-index: 10;
 }
 
 .chat-header h2 {
-    margin: 0;
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
+/* Chat Box - Message Display Area */
 .chat-box {
-    height: 400px;
+    flex: 1;
     overflow-y: auto;
-    padding: 15px;
-    background-color: #f8f9fa;
+    padding: 20px;
+    background-color: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scroll-behavior: smooth;
 }
 
+/* Message Container */
+.message-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Message Styles - Clear separation between sender and receiver */
 .message {
-    max-width: 70%;
-    margin: 10px 0;
-    padding: 10px 15px;
-    border-radius: 15px;
-    clear: both;
+    max-width: 75%;
+    padding: 12px 15px;
+    border-radius: var(--message-border-radius);
+    position: relative;
     word-wrap: break-word;
+    line-height: 1.4;
 }
 
-.doctor {
-    background-color: #e6f2ff;
-    float: left;
-    margin-right: 50px;
+/* Sender message (current user) */
+.message-sender {
+    align-self: flex-end;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-bottom-right-radius: 4px;
+    margin-left: auto;
+    margin-right: 5px;
 }
 
-.patient {
-    background-color: #3498db;
+/* Receiver message (doctor or patient) */
+.message-receiver {
+    align-self: flex-start;
+    background-color: var(--white);
+    border: 1px solid var(--mid-gray);
+    border-bottom-left-radius: 4px;
+    margin-right: auto;
+    margin-left: 5px;
+}
+
+/* User Role Indicators */
+.message-role {
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.sender-role {
+    text-align: right;
+    color: var(--primary-blue);
+}
+
+.receiver-role {
+    text-align: left;
+    color: var(--dark-blue);
+}
+
+/* Timestamp */
+.message-time {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.message-sender .message-time {
+    text-align: right;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.message-receiver .message-time {
+    text-align: left;
+}
+
+/* File Attachment Styles */
+.message-attachment {
+    background-color: var(--light-blue);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    margin-top: 8px;
+    font-size: 0.85rem;
+}
+
+.message-sender .message-attachment {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.message-attachment a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.message-sender .message-attachment a {
     color: white;
-    float: right;
-    margin-left: 50px;
 }
 
+.message-attachment a:hover {
+    text-decoration: underline;
+}
+
+/* Attachment Icons */
+.attachment-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* Drag & Drop Area */
+.drop-area {
+    padding: 15px;
+    background-color: var(--light-blue);
+    border: 2px dashed var(--primary-blue);
+    border-radius: var(--border-radius);
+    margin: 10px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+}
+
+.drop-area.drag-over {
+    background-color: var(--accent-blue);
+    border-color: var(--dark-blue);
+}
+
+.drop-area button {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.drop-area button:hover {
+    background-color: var(--dark-blue);
+}
+
+.file-preview {
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+/* Message Input Container */
 .message-input-container {
     display: flex;
-    padding: 15px;
-    background-color: white;
-    border-top: 1px solid #e9ecef;
+    padding: 15px 20px;
+    background-color: var(--white);
+    border-top: 1px solid var(--mid-gray);
+    align-items: center;
 }
 
-#messageInput {
-    flex-grow: 1;
+textarea#messageInput {
+    flex: 1;
+    border: 1px solid var(--mid-gray);
+    border-radius: 20px;
+    padding: 12px 15px;
     resize: none;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 1em;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+    max-height: 120px;
 }
 
+textarea#messageInput:focus {
+    border-color: var(--primary-blue);
+}
+
+/* Buttons */
 .send-btn {
-    background-color: #3498db;
-    color: white;
+    background-color: var(--primary-blue);
+    color: var(--white);
     border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .send-btn:hover {
-    background-color: #2980b9;
+    background-color: var(--dark-blue);
 }
 
 .send-btn svg {
-    stroke: white;
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
+button[onclick="removeFile()"] {
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 8px;
+}
+
+button[onclick="removeFile()"]:hover {
+    background-color: var(--mid-gray);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
     .chat-container {
-        width: 95%;
+        width: 100%;
         max-width: 100%;
-        height: 100vh;
+        height: 90vh;
+        margin-top: 5vh;
+        border-radius: 0;
+        margin: 0;
+    }
+    
+    .chat-header {
         border-radius: 0;
     }
+}
 
+@media screen and (max-width: 768px) {
     .chat-box {
-        height: calc(100vh - 200px);
+        padding: 15px;
     }
-
+    
     .message {
-        max-width: 80%;
+        max-width: 85%;
+        padding: 10px 12px;
+    }
+    
+    .drop-area {
+        margin: 8px 15px;
+        padding: 12px;
+    }
+    
+    .message-input-container {
+        padding: 12px 15px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .message-input-container {
+    .chat-header h2 {
+        font-size: 1rem;
+    }
+    
+    .drop-area {
+        padding: 10px;
+        font-size: 0.8rem;
         flex-direction: column;
     }
-
-    #messageInput {
-        margin-right: 0;
-        margin-bottom: 10px;
+    
+    .drop-area button {
+        margin-top: 8px;
+        margin-left: 0;
     }
-
+    
+    .message-input-container {
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+    
+    textarea#messageInput {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
     .send-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    button[onclick="removeFile()"] {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .message {
+        max-width: 90%;
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for the discard button styling */
+.message-input-container button[type="button"] {
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 8px;
+}
+
+.message-input-container button[type="button"]:hover {
+    background-color: var(--mid-gray);
+}
+
+/* Fix for very small screens (iPhone SE, etc.) */
+@media screen and (max-width: 320px) {
+    .message-input-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .message-input-container button {
+        align-self: flex-end;
+    }
+    
+    textarea#messageInput {
         width: 100%;
+    }
+    
+    .drop-area {
+        font-size: 0.75rem;
     }
 }
