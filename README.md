@@ -15,7 +15,7 @@ MediMapper is a web-based healthcare platform that enables patients to identify 
 1. **Clone the repository**  
 ```bash
 git clone https://github.com/sohamkoli29/MediMapperOg.git
-cd MediMapper
+cd MediMapperOg
 ```
 
 2. **Set up the database:**  
