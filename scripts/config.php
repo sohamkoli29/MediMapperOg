@@ -10,5 +10,5 @@ $conn = new mysqli($host, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-define('API_KEY', 'AIzaSyCnPJK3HSIYTx1ldNm88_DIeyQbLKFB4yk'); 
+define('API_KEY', ''); 
 ?>
