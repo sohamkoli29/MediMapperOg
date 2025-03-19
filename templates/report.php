@@ -27,23 +27,31 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'patient') {
 
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.php" class="logo">MediMapper</a>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="indexP.php" class="nav-link">Dashboard</a></li>
-                    <li class="nav-item"><a href="predict.php" class="nav-link">Symptom Checker</a></li>
-                    <li class="nav-item active"><a href="report.php" class="nav-link">Report Analysis</a></li>
-                    <li class="nav-item"><a href="remedies.php" class="nav-link">Home Remedies</a></li>
-                </ul>
-                <div class="user-actions">
-                    <a href="profile.php" class="user-icon"><i class="fas fa-user-circle"></i></a>
-                    <a href="logout.php" class="user-icon"><i class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div class="container">
+        <nav class="navbar">
+             <!-- Hamburger Menu Icon -->
+             <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <a href="indexP.php" class="logo">MediMapper</a>
+           
+            <!-- Navigation Menu -->
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="consultation.php" class="nav-link">Consultation</a></li>
+                <li class="nav-item"><a href="predict.php" class="nav-link">Symptom Checker</a></li>
+                <li class="nav-item"><a href="report.php" class="nav-link">Report Analysis</a></li>
+                <li class="nav-item active"><a href="remedies.php" class="nav-link">Home Remedies</a></li>
+                <li class="nav-item "><a href="delivery.php" class="nav-link">Medicine Delivery</a></li>
+            </ul>
+            <div class="user-actions">
+                <a href="profile.php" class="user-icon"><i class="fas fa-user-circle"></i></a>
+            </div>
+        </nav>
+    </div>
+</header>
 
     <!-- Main Content -->
     <main class="container">

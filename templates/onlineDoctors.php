@@ -64,6 +64,7 @@ if ($doctor_id > 0) {
                     </div>
                     <div class="profile-actions">
                         <a href="chat.php?doctor_id=<?php echo $doctor_id; ?>" class="chat-btn">Chat with Doctor</a>
+                        <a href="video.php?doctor_id=<?php echo $doctor_id; ?>" class="chat-btn">Video Call with Doctor</a>
                     </div>
                 </div>
             </div>

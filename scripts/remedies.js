@@ -30,7 +30,7 @@ let selectedDisease = "";
 // Function to show disease suggestions
 function showSuggestions(query) {
     suggestionBox.innerHTML = "";
-
+    suggestionBox.style.display='block';
     if (!query) return;
 
     // Filter diseases that match the query (case-insensitive)
@@ -50,6 +50,7 @@ function showSuggestions(query) {
             input.value = disease;
             updateResults();
             suggestionBox.innerHTML = "";
+            
         });
 
         suggestionBox.appendChild(suggestionItem);
@@ -161,4 +162,12 @@ document.addEventListener("click", (e) => {
     if (!input.contains(e.target) && !suggestionBox.contains(e.target)) {
         suggestionBox.innerHTML = "";
     }
+});
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
 });

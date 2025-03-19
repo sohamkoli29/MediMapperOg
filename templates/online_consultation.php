@@ -53,7 +53,8 @@ $doctors_result = $conn->query($doctors_query);
         }
     </style>
 </head> 
-<body>     
+<body>   
+    <main>  
 <div class="dashboard">         
     <h1>Online Consultation</h1>         
     <h2>Available Doctors</h2>         

@@ -123,9 +123,7 @@ function formatText(text) {
 
 
 //api
-
-async function sendToAPI(text) {
-    let apiKey = "";
+let apiKey = "";
 
 async function fetchApiKey() {
   try {
@@ -137,6 +135,9 @@ async function fetchApiKey() {
     console.error("Error fetching API key:", error);
   }
 }
+fetchApiKey();
+async function sendToAPI(text) {
+    
     try {
         const prompt=`You are a medical expert. Based on the provided test report, give me a solution strictly using this format: 
               <strong>- Diet you should follow:</strong><br> 
@@ -187,4 +188,13 @@ function handleExtractedText(text) {
     sendToAPI(extractedText);
 }
 
-//AIzaSyCnPJK3HSIYTx1ldNm88_DIeyQbLKFB4yk
+// Hamburger
+
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});

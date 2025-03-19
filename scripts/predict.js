@@ -29,7 +29,7 @@ let selectedSymptoms = [];
 // Function to show symptom suggestions
 function showSuggestions(query) {
     suggestionBox.innerHTML = "";
-
+    suggestionBox.style.display='block';
     if (!query) return;
 
     // Filter symptoms by query (case-insensitive)
@@ -150,4 +150,13 @@ document.addEventListener("click", (e) => {
     if (!input.contains(e.target) && !suggestionBox.contains(e.target)) {
         suggestionBox.innerHTML = "";
     }
+});
+// hamburger
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
 });
